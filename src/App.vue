@@ -28,7 +28,7 @@ const cambiarFavorito = (title) => {
     :title="post.title" 
     :id="post.id" 
     :body="post.body"
-    @cambiarFavorito="cambiarFavorito"
+    @cambiarFavoritoNombre="cambiarFavorito"
     ></BlogPost>
 
   </div>
