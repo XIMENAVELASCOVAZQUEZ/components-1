@@ -1,5 +1,6 @@
 <script setup>
-import ButtonCounter from './components/ButtonCounter.vue'
+import ButtonCounter from "./components/ButtonCounter.vue";
+import BlogPost from "./components/BlogPost.vue";
 
 </script>
 
@@ -8,5 +9,9 @@ import ButtonCounter from './components/ButtonCounter.vue'
     <h1>APP</h1>
     <ButtonCounter></ButtonCounter>
     <button-counter></button-counter>
+
+    <BlogPost title="Post 1"></BlogPost>
+    <BlogPost title="Post 2"></BlogPost>
+    <BlogPost title="Post 3"></BlogPost>
   </div>
 </template>
