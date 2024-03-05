@@ -1,5 +1,6 @@
 <script setup>
 //defineProps(["title", "id", "body"])
+
 defineProps({
     title: String,
     id: Number,
