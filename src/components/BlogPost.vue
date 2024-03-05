@@ -1,13 +1,19 @@
 <script setup>
-const props = defineProps(["title", "id", "body", "colorText"])
-console.log(props.title);
-console.log(props.id);
+//defineProps(["title", "id", "body"])
+defineProps({
+    title: String,
+    id: Number,
+    body: {
+        type: String,
+        default: 'Sin descripción',
+    }
+})
 </script>
 
 <template>
     <div class="card">
         <div class="card-body">
-            <h5 class="card-title" :class="`text-${colorText}`">{{ id }} - {{ title }}</h5>
+            <h5 class="card-title">{{ id }} - {{ title }}</h5>
             <p>{{ body }}</p>
         </div>
     </div>
