@@ -8,10 +8,5 @@ import ButtonCounter from './components/ButtonCounter.vue'
 <template>
   <h1>APP</h1>
   <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
-  <ButtonCounter ></ButtonCounter>
+  <button-counter></button-counter>
 </template>
