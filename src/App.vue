@@ -12,7 +12,9 @@ const cambiarFavorito = (title) => {
 
 fetch('https://jsonplaceholder.typicode.com/posts')
   .then(res => res.json())
-  .then(data => console.log(data))
+  .then((data) => {
+    posts.value= data;
+  });
 </script>
 
 <template>
