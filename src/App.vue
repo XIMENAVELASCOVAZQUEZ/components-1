@@ -39,7 +39,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
 
 
-    <PaginatePost @next="next" @prev="prev" class="mb-2"></PaginatePost>
+    <PaginatePost @next="next" @prev="prev" :inicio="inicio" :fin="fin" class="mb-2"></PaginatePost>
 
     <BlogPost 
     v-for="post in posts.slice(inicio, fin)"
