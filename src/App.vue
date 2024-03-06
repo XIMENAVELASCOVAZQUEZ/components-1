@@ -27,19 +27,19 @@ const prev = () => {
   fin.value += -postXpage;
 }
 
-onMounted(async () => {
-  loading.value = true;
-  try {
-    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    posts.value = await res.json()
-  } catch (error) {
-    console.log(error)
-  } finally {
-    setTimeout(() => {
-      loading.value = false;
-    }, 2000);
-  }
-});
+//onMounted(async () => {
+  //loading.value = true;
+  //try {
+    //const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+    //posts.value = await res.json()
+  //} catch (error) {
+    //console.log(error)
+  //} finally {
+    //setTimeout(() => {
+      //loading.value = false;
+    //}, 2000);
+  //}
+//});
 
 //fetch('https://jsonplaceholder.typicode.com/posts')
 //.then(res => res.json())
@@ -52,6 +52,20 @@ onMounted(async () => {
 //loading.value = false;
 //}, 2000);
 //});
+
+const fetchData = async() => {
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+    posts.value = await res.json()
+  } catch (error) {
+    console.log(error)
+  } finally {
+    setTimeout(() => {
+      loading.value = false;
+    }, 2000);
+  }
+}
+fetchData();
 
 const maxLength = computed(() => posts.value.length)
 </script>
