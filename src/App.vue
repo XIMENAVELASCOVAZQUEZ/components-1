@@ -1,5 +1,5 @@
 <script setup>
-import { ref } from "vue";
+import { ref, computed} from "vue";
 
 import BlogPost from "./components/BlogPost.vue";
 import PaginatePost from "./components/PaginatePost.vue";
@@ -30,6 +30,8 @@ fetch('https://jsonplaceholder.typicode.com/posts')
   .then((data) => {
     posts.value= data;
   });
+
+  const maxLength = computed (() => posts.value.length)
 </script>
 
 <template>
@@ -39,7 +41,7 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 
 
 
-    <PaginatePost @next="next" @prev="prev" :inicio="inicio" :fin="fin" class="mb-2"></PaginatePost>
+    <PaginatePost @next="next" @prev="prev" :inicio="inicio" :fin="fin" :maxLength="posts.length" class="mb-2"></PaginatePost>
 
     <BlogPost 
     v-for="post in posts.slice(inicio, fin)"
