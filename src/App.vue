@@ -1,5 +1,5 @@
 <script setup>
-import { ref, computed } from "vue";
+import { ref, computed, onMounted } from "vue";
 
 import BlogPost from "./components/BlogPost.vue";
 import PaginatePost from "./components/PaginatePost.vue";
@@ -27,17 +27,31 @@ const prev = () => {
   fin.value += -postXpage;
 }
 
-fetch('https://jsonplaceholder.typicode.com/posts')
-  .then(res => res.json())
-  .then((data) => {
-    posts.value = data;
-  })
-  .catch((e) => console.log(e))
-  .finally(() => {
+onMounted(async () => {
+  loading.value = true;
+  try {
+    const res = await fetch("https://jsonplaceholder.typicode.com/posts")
+    posts.value = await res.json()
+  } catch (error) {
+    console.log(error)
+  } finally {
     setTimeout(() => {
       loading.value = false;
     }, 2000);
-  });
+  }
+});
+
+//fetch('https://jsonplaceholder.typicode.com/posts')
+//.then(res => res.json())
+//.then((data) => {
+//  posts.value = data;
+//})
+//.catch((e) => console.log(e))
+//.finally(() => {
+//setTimeout(() => {
+//loading.value = false;
+//}, 2000);
+//});
 
 const maxLength = computed(() => posts.value.length)
 </script>
