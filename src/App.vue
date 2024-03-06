@@ -27,19 +27,9 @@ const prev = () => {
   fin.value += -postXpage;
 }
 
-//onMounted(async () => {
-  //loading.value = true;
-  //try {
-    //const res = await fetch("https://jsonplaceholder.typicode.com/posts")
-    //posts.value = await res.json()
-  //} catch (error) {
-    //console.log(error)
-  //} finally {
-    //setTimeout(() => {
-      //loading.value = false;
-    //}, 2000);
-  //}
-//});
+onMounted(() => {
+  fetchData();
+});
 
 //fetch('https://jsonplaceholder.typicode.com/posts')
 //.then(res => res.json())
@@ -53,7 +43,7 @@ const prev = () => {
 //}, 2000);
 //});
 
-const fetchData = async() => {
+const fetchData = async () => {
   try {
     const res = await fetch("https://jsonplaceholder.typicode.com/posts")
     posts.value = await res.json()
@@ -65,7 +55,7 @@ const fetchData = async() => {
     }, 2000);
   }
 }
-fetchData();
+//fetchData();
 
 const maxLength = computed(() => posts.value.length)
 </script>
