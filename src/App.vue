@@ -3,11 +3,13 @@ import { ref, computed} from "vue";
 
 import BlogPost from "./components/BlogPost.vue";
 import PaginatePost from "./components/PaginatePost.vue";
+import LoadingSpinner from "./components/LoadingSpinner.vue";
 
 const posts = ref([]);
 const postXpage = 10
 const inicio = ref(0)
 const fin = ref(postXpage)
+const loading = ref(false);
 
 const favorito = ref('')
 
@@ -35,7 +37,8 @@ fetch('https://jsonplaceholder.typicode.com/posts')
 </script>
 
 <template>
-  <div class="container">
+  <LoadingSpinner v-if="loading"></LoadingSpinner>
+  <div class="container" v-else>
     <h1>APP</h1>
     <h2>Mi Post Favorito: {{ favorito }}</h2>
 
